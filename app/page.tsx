@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
 
 export default function Portfolio() {
@@ -40,9 +41,9 @@ export default function Portfolio() {
           Pravin Chettiar
         </motion.h1>
 
-        <motion.img src='pravin.photo.jpeg' alt='Pravin Chettiar Profile' initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 1 }}
-          className='w-96 md:w-[28rem] mt-10 rounded-2xl shadow-2xl object-cover border-8 border-gradient-to-r from-blue-400 via-teal-400 to-green-400 hover:scale-105 transition-transform duration-500'
-        />
+        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 1 }} className='mt-10'>
+          <Image src='/pravin.photo.jpeg' alt='Pravin Chettiar Profile' width={400} height={400} className='w-96 md:w-[28rem] rounded-full shadow-2xl object-cover border-8 border-gradient-to-r from-blue-400 via-teal-400 to-green-400 hover:scale-105 transition-transform duration-500' />
+        </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className='mt-10 text-center'>
           <span className='inline-block mb-4 px-6 py-2 rounded-full text-sm bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 text-white font-semibold shadow-lg'>Full Stack Developer</span>

@@ -30,7 +30,6 @@ const projects=[
 return(
 <div className="bg-black text-white scroll-smooth">
 
-{/* NAVBAR */}
 <header className="fixed top-0 w-full bg-black/80 backdrop-blur z-50 border-b border-gray-800">
 <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
@@ -58,7 +57,6 @@ Pravin
 </div>}
 </header>
 
-{/* HERO */}
 <section id="home" className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32">
 
 <h1 className="text-8xl font-extrabold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent drop-shadow-xl">
@@ -74,27 +72,6 @@ Full Stack Developer crafting enterprise web applications with modern UI/UX.
 
 </section>
 
-{/* ABOUT */}
-<section id="about" className="max-w-7xl mx-auto px-6 py-44">
-<h2 className="text-5xl text-cyan-400 font-bold mb-14">About Me</h2>
-
-<p className="max-w-5xl text-gray-300 leading-relaxed text-lg">
-B.Voc IT (AI & ML) student and Full Stack Developer specializing in React, Next.js, Node.js & MongoDB.
-I design clean scalable systems with strong UI/UX focus.
-</p>
-
-<ul className="mt-10 list-disc pl-6 text-gray-400 space-y-3 text-lg">
-<li>Strong problem solving</li>
-<li>Reusable component architecture</li>
-<li>Pixel perfect UI</li>
-<li>REST API integration</li>
-<li>Figma UI/UX design</li>
-<li>Git collaboration</li>
-<li>Performance optimization</li>
-</ul>
-</section>
-
-{/* SERVICES */}
 <section id="services" className="max-w-7xl mx-auto px-6 py-44">
 <h2 className="text-5xl text-green-400 text-center font-bold mb-24">Services</h2>
 
@@ -106,8 +83,8 @@ I design clean scalable systems with strong UI/UX focus.
 ["Database Design",<Database/>],
 ["Cloud Deployment",<Cloud/>],
 ["Full Stack Solutions",<Code/>]
-].map(s=>(
-<div key={s[0]} className="bg-gray-900 p-16 rounded-3xl shadow-xl hover:-translate-y-3 transition">
+].map((s,i)=>(
+<div key={i} className="bg-gray-900 p-16 rounded-3xl shadow-xl hover:-translate-y-3 transition">
 <div className="text-cyan-400 mb-6">{s[1]}</div>
 <h3 className="text-2xl font-bold">{s[0]}</h3>
 <p className="text-gray-400 mt-4">Enterprise grade development.</p>
@@ -116,7 +93,6 @@ I design clean scalable systems with strong UI/UX focus.
 </div>
 </section>
 
-{/* SKILLS */}
 <section id="skills" className="max-w-6xl mx-auto px-6 py-44">
 <h2 className="text-5xl text-purple-400 font-bold mb-20">Skills</h2>
 
@@ -130,7 +106,6 @@ I design clean scalable systems with strong UI/UX focus.
 ))}
 </section>
 
-{/* PROJECTS */}
 <section id="projects" className="max-w-7xl mx-auto px-6 py-44">
 <h2 className="text-5xl text-indigo-400 font-bold mb-24">Projects</h2>
 
@@ -146,7 +121,6 @@ I design clean scalable systems with strong UI/UX focus.
 </div>
 </section>
 
-{/* EDUCATION */}
 <section id="education" className="max-w-6xl mx-auto px-6 py-44">
 
 <h2 className="text-5xl text-yellow-400 font-bold mb-16 flex items-center gap-4">
@@ -169,7 +143,6 @@ I design clean scalable systems with strong UI/UX focus.
 
 </section>
 
-{/* CONTACT */}
 <footer id="contact" className="py-44 text-center">
 
 <h2 className="text-6xl font-extrabold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent mb-24">

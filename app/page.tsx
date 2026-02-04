@@ -1,141 +1,213 @@
 'use client';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import Image from "next/image";
+import { useState } from "react";
+import {
+Github, Linkedin, Instagram, Mail, Phone,
+GraduationCap, Code, Server, Palette, Database, Cloud, Menu, X
+} from "lucide-react";
 
 export default function Portfolio() {
-  const [darkMode, setDarkMode] = useState(true); // Default to dark theme
 
-  const projects = [
-    { title: 'Professional Portfolio', desc: 'A professional developer portfolio with animations, responsive layout, and recruiter-friendly structure.', tech: 'React, Tailwind, Framer Motion', live: '#', code: '#' },
-    { title: 'Task Management System', desc: 'Role-based task management system with authentication, authorization, and full CRUD workflows.', tech: 'React, Node.js, Express, MongoDB', live: '#', code: '#' },
-    { title: 'E-Commerce Platform', desc: 'Full-featured e-commerce platform with product management, cart, checkout, and admin dashboard.', tech: 'MERN Stack', live: '#', code: '#' },
-    { title: 'Social Media App', desc: 'A social networking platform with real-time chat, notifications, and user profiles.', tech: 'React, Node.js, Socket.io, MongoDB', live: '#', code: '#' },
-    { title: 'Blog CMS', desc: 'Content management system for blogs with role-based access and SEO optimization.', tech: 'Next.js, Tailwind CSS, MongoDB', live: '#', code: '#' },
-    { title: 'Portfolio Analytics Dashboard', desc: 'Dashboard showing analytics, charts, and performance metrics for projects.', tech: 'React, Chart.js, Node.js, Express', live: '#', code: '#' },
-  ];
+const [open,setOpen]=useState(false);
 
-  const skills = [
-    { name: 'HTML', percent: 95 },
-    { name: 'CSS', percent: 90 },
-    { name: 'JavaScript', percent: 90 },
-    { name: 'React', percent: 85 },
-    { name: 'Tailwind CSS', percent: 85 },
-    { name: 'UI/UX Design', percent: 80 },
-    { name: 'Figma', percent: 75 },
-    { name: 'Node.js', percent: 80 },
-    { name: 'Express.js', percent: 80 },
-    { name: 'MongoDB', percent: 75 },
-    { name: 'Git & GitHub', percent: 85 },
-    { name: 'Deployment & CI/CD', percent: 70 },
-  ];
+const skills=[
+["HTML",95],["CSS",92],["JavaScript",90],
+["React / Next",88],["Tailwind",86],
+["Node",82],["MongoDB",78],["Figma / UI UX",85]
+];
 
-  return (
-    <div className='min-h-screen bg-gray-900 text-gray-100 transition-colors duration-500'>
+const projects=[
+{title:"Enterprise Portfolio",points:["3D UI","Next.js","Responsive","Dark Mode","Glass UI"]},
+{title:"Task Manager",points:["Login","CRUD","Dashboard","Roles","JWT Auth"]},
+{title:"E-Commerce",points:["Cart","Checkout","Admin Panel","Stripe","Orders"]},
+{title:"Social App",points:["Realtime Chat","Notifications","Profiles","Friends"]},
+{title:"Blog CMS",points:["SEO","Editor","Admin","Publishing","Analytics"]},
+{title:"Analytics Dashboard",points:["Charts","KPIs","Reports","Exports"]},
+{title:"API Platform",points:["Node APIs","Auth","MongoDB","Security"]},
+{title:"UI Design System",points:["Figma","Components","Themes","Accessibility"]},
+];
 
-      {/* Hero Section */}
-      <section className='relative flex flex-col items-center justify-center min-h-screen'>
-        <motion.h1 initial={{ scale: 0, rotateY: -180 }} animate={{ scale: 1, rotateY: 0 }} transition={{ duration: 1 }}
-          className='text-8xl md:text-[9rem] font-extrabold bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 bg-clip-text text-transparent text-center drop-shadow-2xl select-none animate-pulse'>
-          Pravin Chettiar
-        </motion.h1>
+return(
+<div className="bg-black text-white scroll-smooth">
 
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 1 }} className='mt-10'>
-          <Image src='/pravin.photo.jpeg' alt='Pravin Chettiar Profile' width={400} height={400} className='w-96 md:w-[28rem] rounded-full shadow-2xl object-cover border-8 border-gradient-to-r from-blue-400 via-teal-400 to-green-400 hover:scale-105 transition-transform duration-500' />
-        </motion.div>
+{/* NAVBAR */}
+<header className="fixed top-0 w-full bg-black/80 backdrop-blur z-50 border-b border-gray-800">
+<div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className='mt-10 text-center'>
-          <span className='inline-block mb-4 px-6 py-2 rounded-full text-sm bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 text-white font-semibold shadow-lg'>Full Stack Developer</span>
-          <p className='text-2xl md:text-3xl text-gray-200 max-w-2xl mx-auto mt-4 font-medium'>Creating professional, interactive, and visually engaging web applications for enterprise and modern web standards.</p>
-          <div className='mt-8 flex justify-center gap-6'>
-            <a href='#projects' className='px-8 py-3 rounded-full bg-gradient-to-r from-green-400 via-teal-400 to-blue-400 text-white font-semibold shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl'>Explore Projects</a>
-            <a href='#contact' className='px-8 py-3 rounded-full border-2 border-green-400 text-green-300 font-semibold transition-all duration-300 hover:bg-green-900 hover:scale-105'>Hire Me</a>
-          </div>
-        </motion.div>
-      </section>
+<span className="font-bold text-xl bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+Pravin
+</span>
 
-      {/* About Me Section */}
-      <section className='max-w-7xl mx-auto px-6 py-28'>
-        <h3 className='text-4xl font-bold mb-10 text-teal-400'>About Me</h3>
-        <div className='grid md:grid-cols-2 gap-14 items-start'>
-          <p className='text-lg text-gray-200 leading-relaxed'>
-            I am a growth-oriented Full Stack Web Developer experienced in building end-to-end enterprise-grade web solutions. I focus on creating scalable, secure, and visually stunning applications. I emphasize code quality, reusability, and maintainability.
-            <br /><br />
-            Beyond development, I enjoy designing clean UI/UX experiences, exploring new technologies, implementing animations, and interactions that delight users. I continuously contribute to open-source projects, mentor juniors, and participate in hackathons to enhance my skills.
-          </p>
-          <div className='space-y-5'>
-            {['Problem-solving & analytical thinking','UI/UX & accessibility awareness','Clean & maintainable code','Effective teamwork & communication','Continuous learning & adaptability','Open-source contributions','Hackathon participation'].map(item => (
-              <motion.div key={item} whileHover={{ scale: 1.05 }} className='p-4 rounded-xl bg-gray-800 shadow transition-all duration-300 hover:shadow-xl hover:-translate-y-1'>✔ {item}</motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+<nav className="hidden md:flex gap-8 text-sm">
+{["home","about","services","skills","projects","education","contact"].map(i=>(
+<a key={i} href={`#${i}`} className="hover:text-cyan-400 capitalize">{i}</a>
+))}
+</nav>
 
-      {/* Skills Section */}
-      <section id='skills' className='max-w-7xl mx-auto px-6 py-28'>
-        <h3 className='text-4xl font-bold mb-8 text-green-400'>Skills & Expertise</h3>
-        <p className='max-w-3xl mb-14 text-gray-200'>Combining UI/UX design with technical skills to build professional, interactive, and scalable web applications.</p>
-        <div className='grid md:grid-cols-2 gap-10'>
-          {skills.map(skill => (
-            <div key={skill.name} className='mb-6'>
-              <div className='flex justify-between mb-1 font-semibold'>{skill.name} <span>{skill.percent}%</span></div>
-              <div className='w-full bg-gray-700 rounded-full h-6'>
-                <motion.div initial={{ width: 0 }} animate={{ width: `${skill.percent}%` }} className='h-6 bg-gradient-to-r from-blue-400 via-teal-400 to-green-400 rounded-full shadow-lg'/>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+<button className="md:hidden" onClick={()=>setOpen(!open)}>
+{open?<X/>:<Menu/>}
+</button>
 
-      {/* Projects Section */}
-      <section id='projects' className='max-w-7xl mx-auto px-6 py-28'>
-        <h3 className='text-4xl font-bold mb-8 text-blue-400'>Projects</h3>
-        <p className='max-w-3xl mb-12 text-gray-200'>A showcase of professional projects demonstrating full-stack development, modern frameworks, and enterprise-ready solutions.</p>
-        <div className='grid md:grid-cols-3 gap-8'>
-          {projects.map(project => (
-            <motion.div key={project.title} whileHover={{ scale: 1.05, rotateY: 5 }} className='p-6 rounded-2xl bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2'>
-              <h4 className='text-xl font-bold mb-2 text-teal-400'>{project.title}</h4>
-              <p className='text-gray-200 mb-3'>{project.desc}</p>
-              <p className='text-sm mb-4 font-semibold'>Tech Stack: {project.tech}</p>
-              <div className='flex gap-4'>
-                <a href={project.live} className='inline-flex items-center gap-2 text-blue-400 font-semibold'>Live Demo <ExternalLink size={16} /></a>
-                <a href={project.code} className='inline-flex items-center gap-2 text-green-400 font-semibold'>Source Code <Github size={16} /></a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+</div>
 
-      {/* Footer */}
-      <footer className='bg-gray-900 border-t border-gray-700'>
-        <div className='max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 gap-10'>
-          <div>
-            <h4 className='text-xl font-bold text-teal-400 mb-3'>Pravin Chettiar</h4>
-            <p className='text-gray-300 leading-relaxed'>Creating professional, high-performing, and visually engaging web applications using modern technologies for enterprise-grade standards.</p>
-          </div>
-          <div>
-            <h5 className='font-semibold text-gray-200 mb-4'>Quick Links</h5>
-            <ul className='space-y-2'>
-              <li><a href='#skills' className='hover:text-teal-400 transition'>Skills</a></li>
-              <li><a href='#projects' className='hover:text-teal-400 transition'>Projects</a></li>
-              <li><a href='#contact' className='hover:text-teal-400 transition'>Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5 className='font-semibold text-gray-200 mb-4'>Connect</h5>
-            <div className='flex gap-4'>
-              <a href='#' className='p-3 rounded-full bg-gray-800 text-blue-400 transition-all duration-300 hover:bg-gray-700 hover:scale-110'><Github size={18} /></a>
-              <a href='#' className='p-3 rounded-full bg-gray-800 text-green-400 transition-all duration-300 hover:bg-gray-700 hover:scale-110'><Linkedin size={18} /></a>
-              <a href='mailto:your@email.com' className='p-3 rounded-full bg-gray-800 text-teal-400 transition-all duration-300 hover:bg-gray-700 hover:scale-110'><Mail size={18} /></a>
-            </div>
-          </div>
-        </div>
-        <div className='text-center py-6 text-gray-400 border-t border-gray-700'>
-          © {new Date().getFullYear()} Pravin Chettiar. All rights reserved.
-        </div>
-      </footer>
+{open &&
+<div className="bg-black p-6 space-y-4 md:hidden">
+{["home","about","services","skills","projects","education","contact"].map(i=>(
+<a key={i} href={`#${i}`} className="block capitalize" onClick={()=>setOpen(false)}>{i}</a>
+))}
+</div>}
+</header>
 
-    </div>
-  );
+{/* HERO */}
+<section id="home" className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32">
+
+<h1 className="text-8xl font-extrabold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent drop-shadow-xl">
+Pravin Chettiar
+</h1>
+
+<Image src="/pravin.photo.jpeg" width={320} height={320}
+className="rounded-full border-4 border-cyan-400 mt-12 shadow-2xl hover:scale-105 transition"/>
+
+<p className="max-w-4xl mt-10 text-2xl text-gray-300">
+Full Stack Developer crafting enterprise web applications with modern UI/UX.
+</p>
+
+</section>
+
+{/* ABOUT */}
+<section id="about" className="max-w-7xl mx-auto px-6 py-44">
+<h2 className="text-5xl text-cyan-400 font-bold mb-14">About Me</h2>
+
+<p className="max-w-5xl text-gray-300 leading-relaxed text-lg">
+B.Voc IT (AI & ML) student and Full Stack Developer specializing in React, Next.js, Node.js & MongoDB.
+I design clean scalable systems with strong UI/UX focus.
+</p>
+
+<ul className="mt-10 list-disc pl-6 text-gray-400 space-y-3 text-lg">
+<li>Strong problem solving</li>
+<li>Reusable component architecture</li>
+<li>Pixel perfect UI</li>
+<li>REST API integration</li>
+<li>Figma UI/UX design</li>
+<li>Git collaboration</li>
+<li>Performance optimization</li>
+</ul>
+</section>
+
+{/* SERVICES */}
+<section id="services" className="max-w-7xl mx-auto px-6 py-44">
+<h2 className="text-5xl text-green-400 text-center font-bold mb-24">Services</h2>
+
+<div className="grid md:grid-cols-3 gap-14">
+{[
+["Frontend Development",<Code/>],
+["Backend APIs",<Server/>],
+["UI UX Design",<Palette/>],
+["Database Design",<Database/>],
+["Cloud Deployment",<Cloud/>],
+["Full Stack Solutions",<Code/>]
+].map(s=>(
+<div key={s[0]} className="bg-gray-900 p-16 rounded-3xl shadow-xl hover:-translate-y-3 transition">
+<div className="text-cyan-400 mb-6">{s[1]}</div>
+<h3 className="text-2xl font-bold">{s[0]}</h3>
+<p className="text-gray-400 mt-4">Enterprise grade development.</p>
+</div>
+))}
+</div>
+</section>
+
+{/* SKILLS */}
+<section id="skills" className="max-w-6xl mx-auto px-6 py-44">
+<h2 className="text-5xl text-purple-400 font-bold mb-20">Skills</h2>
+
+{skills.map(s=>(
+<div key={s[0]} className="mb-10">
+<div className="flex justify-between mb-2 text-lg"><span>{s[0]}</span><span>{s[1]}%</span></div>
+<div className="bg-gray-800 h-4 rounded">
+<div style={{width:`${s[1]}%`}} className="h-4 bg-gradient-to-r from-cyan-400 to-green-400 rounded"/>
+</div>
+</div>
+))}
+</section>
+
+{/* PROJECTS */}
+<section id="projects" className="max-w-7xl mx-auto px-6 py-44">
+<h2 className="text-5xl text-indigo-400 font-bold mb-24">Projects</h2>
+
+<div className="grid md:grid-cols-3 gap-14">
+{projects.map(p=>(
+<div key={p.title} className="bg-gray-900 p-14 rounded-3xl hover:-translate-y-2 transition shadow-xl">
+<h3 className="text-cyan-400 font-bold text-2xl mb-4">{p.title}</h3>
+<ul className="list-disc pl-5 text-gray-400 space-y-2">
+{p.points.map(pt=><li key={pt}>{pt}</li>)}
+</ul>
+</div>
+))}
+</div>
+</section>
+
+{/* EDUCATION */}
+<section id="education" className="max-w-6xl mx-auto px-6 py-44">
+
+<h2 className="text-5xl text-yellow-400 font-bold mb-16 flex items-center gap-4">
+<GraduationCap/> Education
+</h2>
+
+<div className="bg-gray-900 p-20 rounded-3xl shadow-xl">
+<h3 className="text-3xl font-bold mb-6">B.Voc Information Technology (AI & ML)</h3>
+
+<ul className="text-gray-400 list-disc pl-6 space-y-3 text-lg">
+<li>Artificial Intelligence fundamentals</li>
+<li>Machine Learning applications</li>
+<li>Full Stack Development</li>
+<li>UI/UX with Figma</li>
+<li>Database Management</li>
+<li>Software Engineering</li>
+<li>Team Projects</li>
+</ul>
+</div>
+
+</section>
+
+{/* CONTACT */}
+<footer id="contact" className="py-44 text-center">
+
+<h2 className="text-6xl font-extrabold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent mb-24">
+Let’s Connect
+</h2>
+
+<div className="grid md:grid-cols-4 gap-10 max-w-6xl mx-auto">
+
+<a href="tel:8850935147" className="bg-gray-900 p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition">
+<Phone className="mx-auto mb-4"/>8850935147
+</a>
+
+<a href="mailto:pravinchettiar96@gmail.com" className="bg-gray-900 p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition">
+<Mail className="mx-auto mb-4"/>Email
+</a>
+
+<a href="https://instagram.com/pravin_chettiarr" target="_blank"
+className="bg-gray-900 p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition">
+<Instagram className="mx-auto mb-4"/>Instagram
+</a>
+
+<a href="https://linkedin.com" target="_blank"
+className="bg-gray-900 p-10 rounded-3xl shadow-xl hover:-translate-y-2 transition">
+<Linkedin className="mx-auto mb-4"/>LinkedIn
+</a>
+
+</div>
+
+<div className="flex justify-center gap-14 mt-20">
+<a href="https://github.com/pravinchettiar96-max" target="_blank"><Github size={36}/></a>
+</div>
+
+<p className="text-gray-500 mt-20">
+© {new Date().getFullYear()} Pravin Chettiar
+</p>
+
+</footer>
+
+</div>
+);
 }

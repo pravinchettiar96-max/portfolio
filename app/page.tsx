@@ -65,7 +65,7 @@ Pravin
 Pravin Chettiar
 </h1>
 
-<Image src="/pravin.photo.jpeg" width={320} height={320}
+<Image src="/pravin.photo.jpeg" alt="My profile photo" width={320} height={320}
 className="rounded-full border-4 border-cyan-400 mt-12 shadow-2xl hover:scale-105 transition"/>
 
 <p className="max-w-4xl mt-10 text-2xl text-gray-300">
